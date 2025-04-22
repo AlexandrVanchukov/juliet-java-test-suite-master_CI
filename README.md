@@ -41,3 +41,6 @@ You also have the option to include the entire repository as a dependency
 by adding `com.github.UnitTestBot:juliet-java-test-suite:$version` to your project.
 However, please be aware that the complete artifact, which includes all CWEs,
 is quite substantial in size, exceeding 60MB.
+
+
+Trigger CI
