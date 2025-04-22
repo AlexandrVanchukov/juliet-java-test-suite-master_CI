@@ -1,0 +1,43 @@
+services:
+  pvs-analyzer:
+    image: viva64/pvs-studio:7.36
+    container_name: pvs-analyzer
+    volumes:
+      - .:/mnt/project
+    working_dir: /mnt/project
+    command: >
+      sh -c "mkdir -p reports && 
+      java -jar /root/.config/PVS-Studio-Java/7.36.91321/pvs-studio.jar --activate-license --user-name 'PVS-Studio Free' --license-key 'FREE-FREE-FREE-FREE' &&
+      java -jar /root/.config/PVS-Studio-Java/7.36.91321/pvs-studio.jar --src . --analysis-mode OWASP --output-type json --output-file ./reports/rep.json"
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+    container_name: sonar-scanner
+    depends_on:
+      - sonarqube
+    volumes:
+      - .:/usr/src
+    working_dir: /usr/src
+    command: >
+      sonar-scanner
+      -Dsonar.projectKey=my-java-project
+      -Dsonar.sources=.
+      -Dsonar.java.binaries=.
+      -Dsonar.host.url=https://bjlzv213-9000.euw.devtunnels.ms/projects
+      -Dsonar.token=sqa_e80ed932c5d53dae5db7945b59354aaeba84dcf7
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:

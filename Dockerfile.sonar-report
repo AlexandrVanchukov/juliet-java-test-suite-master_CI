@@ -1,0 +1,12 @@
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y git maven && \
+    git clone https://github.com/cnescatlab/sonar-report.git && \
+    cd sonar-report && mvn clean package
+
+WORKDIR /app/sonar-report
+
+ENTRYPOINT ["java", "-jar", "target/sonar-report.jar"]

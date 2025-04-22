@@ -1,0 +1,46 @@
+{
+  "src": [
+    "/mnt/project"
+  ],
+  "ext": [],
+  "threads": 3,
+  "output-file": "/mnt/project/reports/rep.json",
+  "output-type": "json",
+  "incremental": false,
+  "force-rebuild": false,
+  "disable-cache": false,
+  "exclude": [],
+  "analyze-only": [],
+  "fail-on-warnings": false,
+  "analysis-mode": [
+    "OWASP"
+  ],
+  "disabled-warnings": [],
+  "enabled-warnings": [],
+  "additional-warnings": [],
+  "suppress-base": ".PVS-Studio/suppress_base.json",
+  "timeout": 10,
+  "compatibility": false,
+  "exclude-packages": [],
+  "activate-license": false,
+  "version": false,
+  "is-java-core-subprocess-with-add-opens-for-native-libs-field-reflective-access": false,
+  "write-to-stdout": false,
+  "verbose": true,
+  "useOfflineDocumentation": false,
+  "skip-modules": [],
+  "include-generated": false,
+  "launch-mode": "CORE",
+  "enable-all-warnings": false,
+  "benchmark": false,
+  "java": "java",
+  "jvm-arguments": [
+    "-Xss64m"
+  ],
+  "traceLogFileName": "pvs-license.log",
+  "traceSpoonLogFileName": "spoon-license.log",
+  "check-license": true,
+  "logging": "OFF",
+  "project": "/mnt/project",
+  "type": "sources"
+}
