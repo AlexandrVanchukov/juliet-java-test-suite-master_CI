@@ -35,7 +35,7 @@ services:
       -Dsonar.projectKey=my-java-project
       -Dsonar.sources=.
       -Dsonar.java.binaries=.
-      -Dsonar.host.url=https://bjlzv213-9000.euw.devtunnels.ms/projects
+      -Dsonar.host.url=https://bjlzv213-9000.euw.devtunnels.ms
       -Dsonar.token=sqa_e80ed932c5d53dae5db7945b59354aaeba84dcf7
 volumes:
   sonarqube_data:
