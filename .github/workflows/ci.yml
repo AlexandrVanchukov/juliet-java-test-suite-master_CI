@@ -68,3 +68,13 @@ jobs:
       - name: Start PVS-Studio container and analyze
         run: |
           docker-compose run --rm pvs-analyzer 
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0.0
+        with:
+          publish-dir: './reports'
+          production-branch: master
+          deploy-message: '${{  github.event.head_commit.message }}'
+        env:
+          NETLIFY_SITE_ID: 3d541a61-eab1-434a-a4f9-af8ca92e7d2a
+          NETLIFY_AUTH_TOKEN: nfp_noXzoqKtmRAPC4iZ1mATp4mgudvToxmHf97a
