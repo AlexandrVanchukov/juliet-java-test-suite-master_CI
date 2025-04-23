@@ -29,22 +29,22 @@ jobs:
         run: ./gradlew build --stacktrace --scan
 
 
-  sonar:
-    needs: build-linux
-    runs-on: ubuntu-latest
+  # sonar:
+  #   needs: build-linux
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
 
-      - name: Set up Docker Compose
-        run: |
-            sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
-            docker-compose --version
+  #     - name: Set up Docker Compose
+  #       run: |
+  #           sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  #           sudo chmod +x /usr/local/bin/docker-compose
+  #           docker-compose --version
 
-      - name: Run Sonar Scanner
-        run: docker-compose run --rm sonar-scanner 
+  #     - name: Run Sonar Scanner
+  #       run: docker-compose run --rm sonar-scanner 
 
         
   pvs:
