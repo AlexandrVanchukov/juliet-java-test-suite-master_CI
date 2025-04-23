@@ -8,7 +8,7 @@ services:
     command: >
       sh -c "mkdir -p reports && 
       java -jar /root/.config/PVS-Studio-Java/7.36.91321/pvs-studio.jar --activate-license --user-name 'PVS-Studio Free' --license-key 'FREE-FREE-FREE-FREE' &&
-      java -jar /root/.config/PVS-Studio-Java/7.36.91321/pvs-studio.jar --src . --analysis-mode OWASP --output-type html --output-file ./reports/rep.html"
+      java -jar /root/.config/PVS-Studio-Java/7.36.91321/pvs-studio.jar --src . --analysis-mode OWASP --output-type html --output-file ./reports/index.html"
 
   sonarqube:
     image: sonarqube:latest
