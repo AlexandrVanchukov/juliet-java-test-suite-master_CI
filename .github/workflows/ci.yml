@@ -68,6 +68,8 @@ jobs:
         run: |
           docker-compose run --rm pvs-analyzer 
 
+      - name: List generated report files
+          run: ls -R ./reports
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0.0
         with:
