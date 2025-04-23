@@ -69,9 +69,9 @@ jobs:
         run: |
           docker-compose run --rm pvs-analyzer 
 
-
-      - name: List generated report files
-        run: ls -R ./reports
+      - name: Convert to HTML
+        run: |
+          docker run -v "$(pwd):/reports" pvsstudio/pvs-studio plog-converter -t fullhtml -o /reports/rep.html /reports/rep.json 
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0.0
