@@ -43,4 +43,3 @@ However, please be aware that the complete artifact, which includes all CWEs,
 is quite substantial in size, exceeding 60MB.
 
 
-Trigger CI
