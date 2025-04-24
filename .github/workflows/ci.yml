@@ -68,6 +68,12 @@ jobs:
         run: |
           docker-compose run --rm pvs-analyzer 
 
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: report-html
+          path: ./reports/index.html
+
       - name: List generated report files
         run: ls -R ./reports
 
