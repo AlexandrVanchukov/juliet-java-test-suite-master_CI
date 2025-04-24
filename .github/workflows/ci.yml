@@ -68,8 +68,8 @@ jobs:
         run: |
           docker-compose run --rm pvs-analyzer 
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
+      - name: Upload PVS-Studio report
+        uses: actions/upload-artifact@v3
         with:
           name: report-html
           path: ./reports/index.html
