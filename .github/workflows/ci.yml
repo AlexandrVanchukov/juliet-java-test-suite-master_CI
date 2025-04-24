@@ -68,11 +68,11 @@ jobs:
         run: |
           docker-compose run --rm pvs-analyzer 
 
-      - name: Upload PVS-Studio report
+      - name: Upload PVS-Studio HTML report
         uses: actions/upload-artifact@v3
         with:
           name: report-html
-          path: ./reports/index.html
+          path: ./reports/
 
       - name: List generated report files
         run: ls -R ./reports
