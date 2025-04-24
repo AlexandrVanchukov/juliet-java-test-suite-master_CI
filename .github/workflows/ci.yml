@@ -69,10 +69,10 @@ jobs:
           docker-compose run --rm pvs-analyzer 
 
       - name: Upload PVS-Studio HTML report
-        uses: actions/download-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: report-html
-          path: ./reports/
+          path: ./reports/index.html
 
       - name: List generated report files
         run: ls -R ./reports
@@ -84,5 +84,5 @@ jobs:
           production-branch: master
           deploy-message: '${{  github.event.head_commit.message }}'
         env:
-          NETLIFY_SITE_ID: 3d541a61-eab1-434a-a4f9-af8ca92e7d2a
-          NETLIFY_AUTH_TOKEN: nfp_noXzoqKtmRAPC4iZ1mATp4mgudvToxmHf97a
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
